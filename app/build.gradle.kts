@@ -52,6 +52,8 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.paging.runtime.ktx)
+    implementation(libs.coil)
+    implementation(libs.coil.network.okhttp)
 
 
     testImplementation(libs.junit)

@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil3.load
+import coil3.request.placeholder
 import com.glopezsanchez.rickmortytest.R
 import com.glopezsanchez.rickmortytest.databinding.ListItemCharacterBinding
 import com.glopezsanchez.rickmortytest.domain.model.Character
@@ -30,6 +32,9 @@ class CharacterAdapter(private val onClick: (Character) -> Unit) :
         fun bind(character: Character) {
             currentCharacter = character
             binding.characterName.text = character.name
+            binding.characterImage.load(character.picture) {
+                placeholder(R.drawable.ic_loading)
+            }
             binding.characterStatus.text = character.status
             binding.locationText.text = character.location
         }
