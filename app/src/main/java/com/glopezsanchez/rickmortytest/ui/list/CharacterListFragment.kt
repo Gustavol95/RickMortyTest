@@ -12,7 +12,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.paging.CombinedLoadStates
 import androidx.paging.LoadState
 import com.glopezsanchez.rickmortytest.databinding.FragmentCharacterListBinding
+import com.glopezsanchez.rickmortytest.ui.CharacterListIntent
 import com.glopezsanchez.rickmortytest.ui.MainViewModel
+import com.google.android.material.chip.Chip
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -49,6 +51,15 @@ class CharacterListFragment : Fragment() {
             adapter.loadStateFlow.collectLatest {
                 handleLoadingState(it)
             }
+        }
+
+        binding.filterGroup.setOnCheckedStateChangeListener { _, checkedIds ->
+            val filter: String? = if (checkedIds.isEmpty().not()) {
+                val chip = binding.filterGroup.findViewById<Chip>(checkedIds.first())
+                chip.text.toString()
+            } else null
+
+            viewModel.processIntent(CharacterListIntent.FilterList(filter))
         }
     }
 

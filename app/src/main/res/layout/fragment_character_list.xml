@@ -15,6 +15,35 @@
         android:background="@android:color/holo_blue_dark"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/filter_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:singleSelection="true"
+        android:layout_margin="16dp">
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_alive" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_dead" />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.Material3.Chip.Filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/chip_unknown" />
+
+    </com.google.android.material.chip.ChipGroup>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_characters"
         android:layout_width="match_parent"
@@ -24,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:layout_constraintTop_toBottomOf="@+id/filter_group"
         tools:listitem="@layout/list_item_character" />
 
 

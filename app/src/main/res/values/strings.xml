@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">RickMortyTest</string>
     <string name="toolbar_title_character_list">Rick and Morty Character List</string>
+    <string name="chip_alive">Alive</string>
+    <string name="chip_unknown">Unknown</string>
+    <string name="chip_dead">Dead</string>
 </resources>

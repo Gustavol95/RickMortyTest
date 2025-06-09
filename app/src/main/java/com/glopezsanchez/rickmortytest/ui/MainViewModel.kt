@@ -21,6 +21,13 @@ class MainViewModel(
         getCharacters()
     }
 
+    fun processIntent(intent: CharacterListIntent) {
+        when (intent) {
+            is CharacterListIntent.LoadData -> getCharacters()
+            is CharacterListIntent.FilterList -> getCharacters(intent.filter)
+        }
+    }
+
     private fun getCharacters(filter: String? = null) {
         viewModelScope.launch {
             characterRepository.getCharacters(filter)
@@ -28,4 +35,8 @@ class MainViewModel(
                 .collectLatest { _listUiState.value = _listUiState.value.copy(data = it) }
         }
     }
+}
+sealed interface CharacterListIntent {
+    data object LoadData : CharacterListIntent
+    data class FilterList(val filter: String?) : CharacterListIntent
 }
