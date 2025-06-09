@@ -3,8 +3,11 @@ package com.glopezsanchez.rickmortytest.di
 import com.glopezsanchez.rickmortytest.data.remote.ApiService
 import com.glopezsanchez.rickmortytest.data.repository.CharacterRepositoryImpl
 import com.glopezsanchez.rickmortytest.domain.repository.CharacterRepository
+import com.glopezsanchez.rickmortytest.ui.MainViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.core.module.dsl.viewModel
+import org.koin.core.scope.get
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
@@ -51,6 +54,9 @@ object AppModule {
         single<CharacterRepository> { CharacterRepositoryImpl(get()) }
     }
 
+    private val viewModelModule = module {
+        viewModel { MainViewModel(get()) }
+    }
 
-    val appModule = listOf(networkModule, repositoryModule)
+    val appModule = listOf(networkModule, repositoryModule, viewModelModule)
 }
