@@ -4,9 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.CombinedLoadStates
+import androidx.paging.LoadState
 import com.glopezsanchez.rickmortytest.databinding.FragmentCharacterListBinding
 import com.glopezsanchez.rickmortytest.ui.MainViewModel
 import kotlinx.coroutines.flow.collectLatest
@@ -39,6 +43,24 @@ class CharacterListFragment : Fragment() {
                     adapter.submitData(state.data)
                 }
             }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            adapter.loadStateFlow.collectLatest {
+                handleLoadingState(it)
+            }
+        }
+    }
+
+    private fun handleLoadingState(loadStates: CombinedLoadStates) {
+        binding.loadingContainer.isVisible =
+            (loadStates.refresh is LoadState.Loading) || (loadStates.append is LoadState.Loading)
+        if ((loadStates.refresh is LoadState.Error) || (loadStates.append is LoadState.Error)) {
+            Toast.makeText(
+                requireContext(),
+                "We're having trouble loading the data.",
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }
