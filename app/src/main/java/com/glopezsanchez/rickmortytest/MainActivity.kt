@@ -1,4 +1,4 @@
-package com.glopezsanchez.myapplication
+package com.glopezsanchez.rickmortytest
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge

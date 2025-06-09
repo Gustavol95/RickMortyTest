@@ -4,13 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "com.glopezsanchez.myapplication"
-    compileSdk = 34
+    namespace = "com.glopezsanchez.rickmortytest"
+    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.glopezsanchez.myapplication"
+        applicationId = "com.glopezsanchez.rickmortytest"
         minSdk = 24
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
