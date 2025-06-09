@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.converter.moshi)
     implementation(libs.androidx.paging.common.ktx)
     implementation(libs.koin.android)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.paging.runtime.ktx)
 
 
     testImplementation(libs.junit)

@@ -23,5 +23,8 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        //Temporally just to lazy load the viewmodel for the fragments
+        viewModel.listUiState
     }
 }
