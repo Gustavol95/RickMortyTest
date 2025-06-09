@@ -13,6 +13,9 @@ retrofit = "3.0.0"
 pagingCommonKtx = "3.3.6"
 mockk = "1.14.2"
 kotlinxCoroutinesTest = "1.5.1"
+koinAndroid = "4.0.4"
+loggingInterceptor = "4.12.0"
+converterMoshi = "2.9.0"
 
 
 [libraries]
@@ -27,7 +30,10 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 squareup-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "converterMoshi" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
 androidx-paging-common-ktx = { module = "androidx.paging:paging-common-ktx", version.ref = "pagingCommonKtx" }
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroid" }
 
 
 [plugins]

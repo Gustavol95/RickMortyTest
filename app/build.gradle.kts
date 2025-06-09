@@ -43,7 +43,10 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.squareup.retrofit)
+    implementation(libs.logging.interceptor)
+    implementation(libs.converter.moshi)
     implementation(libs.androidx.paging.common.ktx)
+    implementation(libs.koin.android)
 
 
     testImplementation(libs.junit)

@@ -44,6 +44,7 @@ class MappersKtTest{
         assertEquals(result.name, fakeEpisodeDto.name)
 
     }
+
     private fun getFakeCharacterDto(): CharacterDto {
         return CharacterDto(
             id = 1,
@@ -64,5 +65,4 @@ class MappersKtTest{
             )
         )
     }
-
-}persKtTest
+}
