@@ -23,7 +23,7 @@ class CharacterListFragment : Fragment() {
     private lateinit var binding: FragmentCharacterListBinding
     private val viewModel: MainViewModel by activityViewModels<MainViewModel>()
     private val adapter: CharacterAdapter =
-        CharacterAdapter { item ->  }
+        CharacterAdapter { item -> viewModel.processIntent(CharacterListIntent.SelectCharacter(item)) }
 
 
     override fun onCreateView(
