@@ -10,9 +10,3 @@ This is a demo app implementing master-detail style UI for Rick and Morty's char
 - Koin for DI
 - StateFlow for uiState
 - Paging3
-
-
-## To-Do's
-
-- Unit tests on ViewModel (Logic)
-- Migrate logic to UseCases
